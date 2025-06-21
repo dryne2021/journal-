@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dryne Tutor | Academic Publishing Consultant</title>
+    <meta name="description" content="Professional academic consultant specializing in IEEE and Springer publications">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --accent: #e74c3c;
+            --text: #495057;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            animation: fadeIn 1s ease;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            animation: fadeIn 1s ease 0.3s forwards;
+            animation-fill-mode: both;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            scroll-margin-top: 80px;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            align-items: center;
+        }
+        
+        .profile-img-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        /* Expertise Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Services & Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-img {
+            opacity: 0.9;
+        }
+        
+        .project-info {
+            padding: 2rem;
+        }
+        
+        .project-title {
+            margin: 0 0 1rem;
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Publications */
+        .publications-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .publication-item {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .publication-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+        
+        .publication-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        
+        .publication-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.8rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 1.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .contact-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 1.8rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.95rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .profile-img-container {
+                margin-bottom: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .publication-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .publication-img {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                width: 92%;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content, 
+            .contact-info, 
+            .contact-form,
+            .publication-item {
+                padding: 1.5rem;
+            }
+            
+            .skill-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Dryne Tutor</h1>
+            <p class="tagline">Senior Academic Consultant | IEEE & Springer Publication Specialist</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Case Studies</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-img-container">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Academic Publishing" class="profile-img">
+                </div>
+                <div>
+                    <p>With over 8 years of specialized experience in academic publishing, I am Dryne Tutor, a dedicated professional committed to helping researchers navigate the complex landscape of scholarly publication in top-tier journals.</p>
+                    <p>My career has been focused on bridging the gap between groundbreaking research and successful publication in prestigious venues. I combine deep knowledge of publication requirements with strategic insight to maximize acceptance rates while maintaining the highest academic standards.</p>
+                    <p>What sets me apart is my dual expertise in both IEEE and Springer publication systems, allowing me to provide comprehensive guidance tailored to each client's specific needs and research domain.</p>
+                    <p>I hold advanced certifications in academic publishing and research methodology, and maintain active memberships with several professional organizations in the scholarly communication field.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Expertise Section -->
+    <section id="expertise">
+        <div class="container">
+            <h2 class="section-title">My Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="skill-title">Journal Selection</h3>
+                    <p>Strategic identification of the optimal publication venues based on impact factor, scope, and acceptance rates</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="skill-title">Manuscript Preparation</h3>
+                    <p>Comprehensive formatting and structuring to meet exact journal requirements and editorial expectations</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="skill-title">IEEE Standards</h3>
+                    <p>In-depth knowledge of IEEE publication guidelines, templates, and submission systems</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="skill-title">Springer Guidelines</h3>
+                    <p>Expert navigation of Springer's editorial processes and format requirements</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="skill-title">Peer Review Navigation</h3>
+                    <p>Strategic response to reviewer comments and effective revision planning</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="skill-title">Publication Strategy</h3>
+                    <p>Development of customized publication roadmaps for optimal research impact</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Journal Selection Service" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Comprehensive Journal Matching</h3>
+                        <div class="project-meta">
+                            <span><i class="far fa-clock"></i> 3-5 business days</span>
+                            <span><i class="fas fa-dollar-sign"></i> Starting at $250</span>
+                        </div>
+                        <p>Detailed analysis of your research to identify the most suitable IEEE or Springer journals, including impact factor analysis, acceptance rate evaluation, and editorial board insights.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Manuscript Preparation" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Full Manuscript Preparation</h3>
+                        <div class="project-meta">
+                            <span><i class="far fa-clock"></i> 1-2 weeks</span>
+                            <span><i class="fas fa-dollar-sign"></i> Starting at $500</span>
+                        </div>
+                        <p>End-to-end manuscript formatting, structure optimization, and language polishing to meet exact journal requirements, including figure preparation and reference formatting.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Peer Review Response" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Peer Review Response Strategy</h3>
+                        <div class="project-meta">
+                            <span><i class="far fa-clock"></i> 2-3 business days</span>
+                            <span><i class="fas fa-dollar-sign"></i> Starting at $350</span>
+                        </div>
+                        <p>Professional analysis of reviewer comments and development of a strategic response plan, including suggested revisions and rebuttal letter preparation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Case Studies Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1624953587687-daf255b6b80a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="IEEE Case Study" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">IEEE Access Publication Success</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-user"></i> Computer Science Research</span>
+                        </div>
+                        <p>Guided a research team through the complete publication process in IEEE Access, achieving acceptance in just 8 weeks with minimal revisions required. Our strategic approach to manuscript preparation resulted in one of the fastest turnaround times the researchers had experienced.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Springer Case Study" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Springer Nature Journal Publication</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-user"></i> Biomedical Engineering</span>
+                        </div>
+                        <p>Managed a complex submission to a high-impact Springer journal, navigating two rounds of major revisions and ultimately achieving publication. Our systematic response to reviewer comments transformed initial rejection into acceptance.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Open Access Strategy" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Institutional Open Access Strategy</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2021-2023</span>
+                            <span><i class="fas fa-users"></i> University Research Department</span>
+                        </div>
+                        <p>Developed and implemented a comprehensive open-access publication strategy for a university research department, reducing their publication costs by 35% while increasing citation rates by 60% over two years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications & Research</h2>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="IEEE Journal" class="publication-img">
+                    <div>
+                        <h3 class="publication-title">"Optimizing Publication Outcomes in Engineering: A Comparative Study of IEEE and Springer Journals"</h3>
+                        <div class="publication-meta">
+                            <span><i class="fas fa-book"></i> Journal of Academic Publishing</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-link"></i> DOI: 10.xxxx/xxxxxx</span>
+                        </div>
+                        <p>This comprehensive study analyzes publication patterns and success factors across 150 engineering manuscripts submitted to both IEEE and Springer journals, providing evidence-based recommendations for researchers.</p>
+                    </div>
+                </div>
+                
+                <div class="publication-item">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Peer Review Process" class="publication-img">
+                    <div>
+                        <h3 class="publication-title">"The Peer Review Process Demystified: Strategies for Responding to Reviewer Comments"</h3>
+                        <div class="publication-meta">
+                            <span><i class="fas fa-book"></i> Research Communication Quarterly</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-link"></i> DOI: 10.xxxx/xxxxxx</span>
+                        </div>
+                        <p>A practical guide to navigating the peer review process, based on analysis of 200 reviewer reports from top-tier journals with actionable strategies for authors.</p>
+                    </div>
+                </div>
+                
+                <div class="publication-item">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Open Access" class="publication-img">
+                    <div>
+                        <h3 class="publication-title">"Cost-Effective Open Access Publishing: A Framework for Researchers"</h3>
+                        <div class="publication-meta">
+                            <span><i class="fas fa-book"></i> Open Science Journal</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2021</span>
+                            <span><i class="fas fa-link"></i> DOI: 10.xxxx/xxxxxx</span>
+                        </div>
+                        <p>This paper presents a decision-making framework to help researchers select the most cost-effective open access options without compromising on journal quality or impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-title">Email</div>
+                            <div>dryne2021@gmail.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-title">Phone</div>
+                            <div>+254 796 341 760</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-title">Location</div>
+                            <div>USA (Available for international clients)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-title">Working Hours</div>
+                            <div>Monday - Friday: 9:00 AM - 5:00 PM EST<br>
+                            Emergency consultations available by appointment</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="journal-selection">Journal Selection</option>
+                                <option value="manuscript-prep">Manuscript Preparation</option>
+                                <option value="peer-review">Peer Review Response</option>
+                                <option value="full-package">Full Publication Package</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Dryne Tutor</h3>
+                    <p>Specialized academic publishing consultant helping researchers achieve successful publications in IEEE, Springer, and other prestigious journals.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" title="Phone"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#expertise">My Expertise</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Case Studies</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Journal
